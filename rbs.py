@@ -1,18 +1,61 @@
 # import pygame
 #GAME LOGIC
+#random module
+import random 
+
+#starting values for user and computer ammo and life
 user_ammo = 1
 user_life = 1
 computer_ammo = 1
 computer_life = 1
 
+#starting game logic
 print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
-rbs = input("Reload(R), Block(B), or Shoot(S)?")
+user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+computer_rbs = random.choice(['Reload', 'Block', 'Shoot'])
 
-# if rbs == "R":
-#     user_ammo +=1
-#     elif rbs == "B":
-#         user_
+if user_rbs == "R" and computer_rbs == "Reload":
+    user_ammo +=1 
+    computer_ammo +=1
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "R" and computer_rbs == "Block":
+    user_ammo += 1
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "R" and computer_rbs == "Shoot":
+    user_life = 0
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "B" and computer_rbs == "Reload": 
+    computer_ammo +=1
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "B" and computer_rbs == "Block":
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "B" and computer_rbs == "Shoot":
+    computer_ammo -= 1
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "S" and computer_rbs == "Reload": 
+    user_ammo -= 1
+    computer_life = 0
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "S" and computer_rbs == "Block":
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
+elif user_rbs == "S" and computer_rbs == "Shoot":
+    computer_ammo -= 1
+    user_ammo -= 1
+    print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+    user_rbs = input("Reload(R), Block(B), or Shoot(S)? ")
 
+if user_life == 0 or computer_ammo == 3:
+    print('You lost!')
+elif computer_life == 0 or user_ammo == 3:
+    print('You won!')
 
 
 # # Color constants
