@@ -1,9 +1,17 @@
 # import pygame
 #GAME LOGIC
-user = 1
-computer = 1
+user_ammo = 1
+user_life = 1
+computer_ammo = 1
+computer_life = 1
 
-print("User: " + str(user) + " | Computer: " + str(computer))
+print("User Ammo/Life: " + str(user_ammo) + " / " + str(user_life) + " | Computer Ammo/Life: " + str(computer_ammo) + " / " + str(computer_life))
+rbs = input("Reload(R), Block(B), or Shoot(S)?")
+
+# if rbs == "R":
+#     user_ammo +=1
+#     elif rbs == "B":
+#         user_
 
 
 
