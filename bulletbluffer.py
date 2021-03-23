@@ -43,22 +43,79 @@ while running:
     pygame.draw.circle(screen, GREEN, (300, 400), 30, 5)
     pygame.draw.circle(screen, GREEN, (450, 400), 30, 5)
 
-
     # Draw some text
     font = pygame.font.SysFont(None, 40)
-    text_img = font.render('Yo Mega!', True, GREEN)
-    screen.blit(text_img, (200, 100))
+    text_img = font.render("R : Reload | B : Block | S : Shoot", True, GREEN)
+    screen.blit(text_img, (100, 500))
 
     # Update the game display
     pygame.display.update()
 
+    keys = pygame.key.get_pressed()
+    computer_rbs = ['r', 'b', 's']
     # Update the player
+    # If user presses R to Reload
     if keys[pygame.K_r]:
-        player_x -= velocity
+        enemy_move = random.choice(computer_rbs)
+        #And computer Reloads
+        if enemy_move == "r":
+            user_ammo += 1
+            computer_ammo += 1
+        #And computer Blocks
+        if enemy_move == "b":
+            user_ammo += 1
+        #And computer Shoots
+        if enemy_move == "s":
+            if computer_ammo > 0:
+            user_life -= 1
+            computer_ammo -= 1
+            if computer_ammo <= 0:
+                user_ammo += 1
+
+    #If user presses B to Block
     if keys[pygame.K_b]:
-        player_x += velocity
+        enemy_move = random.choice(computer_rbs)
+        #And computer Reloads
+        if enemy_move == "r":
+            computer_ammo += 1
+        #And computer Blocks
+        if enemy_move == "b":
+            pass
+        #And computer Shoots
+        if enemy_move == "s":
+            computer_ammo -=1
+
+    #If user presses S to Shoot   
     if keys[pygame.K_s]:
-        player_y -= velocity
+        enemy_move = random.choice(computer_rbs)
+        #And computer Reloads
+        if enemy_move == "r":
+            if user_ammo > 0:
+                user_ammo -= 1
+                computer_life -= 1
+            if user_ammo <= 0:
+                computer_ammo += 1
+        #And computer Blocks
+        if enemy_move == "b":
+            if user_ammo > 0:
+                user_ammo -=1
+            if user_ammo <= 0:
+                pass
+        #And computer Shoots
+        if enemy_move == "s":
+            if user_ammo > 0:
+                if computer_ammo > 0:
+                    user_ammo -= 1
+                    computer_ammo -= 1
+                if computer_ammo <=0:
+                    user_ammo -=1
+                    computer_life -= 1
+            if user_ammo <= 0:
+                if computer_ammo > 0:
+                    computer_ammo -= 1
+                if computer_ammo <=0:
+
+        
     
 
 # Done! Time to quit.
