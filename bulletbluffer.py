@@ -16,7 +16,7 @@ BLUE = (0, 0, 255)
 
 # Initialize Pygame
 pygame.init()
-pygame.display.set_caption('Welcome to Bullet Bluffer!')
+pygame.display.set_caption('Bullet Theory')
 
 # Set up the drawing window
 screen = pygame.display.set_mode([600, 600])
@@ -121,51 +121,50 @@ while running:
             if computer_ammo <= 0:
                 user_ammo += 1
 
-#     #If user presses B to Block
-#     if keys[pygame.K_b]:
-#         enemy_move = random.choice(computer_rbs)
-#         #And computer Reloads
-#         if enemy_move == "r":
-#             computer_ammo += 1
-#         #And computer Blocks
-#         if enemy_move == "b":
-#             pass
-#         #And computer Shoots
-#         if enemy_move == "s":
-#             computer_ammo -=1
+    #If user presses B to Block
+    if keys[pygame.K_b]:
+        enemy_move = random.choice(computer_rbs)
+        #And computer Reloads
+        if enemy_move == "r":
+            computer_ammo += 1
+        #And computer Blocks
+        if enemy_move == "b":
+            pass
+        #And computer Shoots
+        if enemy_move == "s":
+            computer_ammo -=1
 
-#     #If user presses S to Shoot   
-#     if keys[pygame.K_s]:
-#         enemy_move = random.choice(computer_rbs)
-#         #And computer Reloads
-#         if enemy_move == "r":
-#             if user_ammo > 0:
-#                 user_ammo -= 1
-#                 computer_life -= 1
-#             if user_ammo <= 0:
-#                 computer_ammo += 1
-#         #And computer Blocks
-#         if enemy_move == "b":
-#             if user_ammo > 0:
-#                 user_ammo -=1
-#             if user_ammo <= 0:
-#                 pass
-#         #And computer Shoots
-#         if enemy_move == "s":
-#             if user_ammo > 0:
-#                 if computer_ammo > 0:
-#                     user_ammo -= 1
-#                     computer_ammo -= 1
-#                 if computer_ammo <=0:
-#                     user_ammo -=1
-#                     computer_life -= 1
-#             if user_ammo <= 0:
-#                 if computer_ammo > 0:
-#                     computer_ammo -= 1
-#                 if computer_ammo <=0:
+    # #If user presses S to Shoot   
+    # if keys[pygame.K_s]:
+    #     enemy_move = random.choice(computer_rbs)
+    #     #And computer Reloads
+    #     if enemy_move == "r":
+    #         if user_ammo > 0:
+    #             user_ammo -= 1
+    #             computer_life -= 1
+    #         if user_ammo <= 0:
+    #             computer_ammo += 1
+    #     #And computer Blocks
+    #     if enemy_move == "b":
+    #         if user_ammo > 0:
+    #             user_ammo -=1
+    #         if user_ammo <= 0:
+    #             pass
+    #     #And computer Shoots
+    #     if enemy_move == "s":
+    #         if user_ammo > 0:
+    #             if computer_ammo > 0:
+    #                 user_ammo -= 1
+    #                 computer_ammo -= 1
+    #             if computer_ammo <=0:
+    #                 user_ammo -=1
+    #                 computer_life -= 1
+    #         if user_ammo <= 0:
+    #             if computer_ammo > 0:
+    #                 computer_ammo -= 1
+    #             if computer_ammo <=0:
 
         
-    
 
 # Done! Time to quit.
 pygame.quit()
