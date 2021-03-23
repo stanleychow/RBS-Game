@@ -44,13 +44,22 @@ while running:
     pygame.draw.circle(screen, GREEN, (450, 400), 30, 5)
 
 
-    # # Draw some text
-    # font = pygame.font.SysFont(None, 40)
-    # text_img = font.render('Hello, World!', True, GREEN)
-    # screen.blit(text_img, (200, 100))
+    # Draw some text
+    font = pygame.font.SysFont(None, 40)
+    text_img = font.render('Yo Mega!', True, GREEN)
+    screen.blit(text_img, (200, 100))
 
     # Update the game display
     pygame.display.update()
+
+    # Update the player
+    if keys[pygame.K_r]:
+        player_x -= velocity
+    if keys[pygame.K_b]:
+        player_x += velocity
+    if keys[pygame.K_s]:
+        player_y -= velocity
+    
 
 # Done! Time to quit.
 pygame.quit()
