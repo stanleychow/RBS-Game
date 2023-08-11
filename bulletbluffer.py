@@ -16,7 +16,7 @@ BLUE = (0, 0, 255)
 
 # Initialize Pygame
 pygame.init()
-pygame.display.set_caption('Bullet Theory')
+pygame.display.set_caption('Bullet Bluffer')
 
 # Set up the drawing window
 screen = pygame.display.set_mode([600, 600])
